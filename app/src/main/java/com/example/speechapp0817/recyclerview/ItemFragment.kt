@@ -9,7 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.speechapp0817.R
+import com.example.speechapp0817.data.News
+import com.example.speechapp0817.newsJson
 import com.example.speechapp0817.recyclerview.dummy.DummyContent
+import com.google.gson.Gson
 
 /**
  * A fragment representing a list of Items.
@@ -39,7 +42,8 @@ class ItemFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyItemRecyclerViewAdapter(DummyContent.ITEMS)
+                val news = Gson().fromJson(newsJson, News::class.java)
+                adapter = MyItemRecyclerViewAdapter(context, news.articles)
             }
         }
         return view
