@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.example.speechapp0817",
+  "variantName": "pubRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 1,
+      "versionName": "1.0_release",
+      "enabled": true,
+      "outputFile": "app-pub-release.apk"
+    }
+  ]
+}
