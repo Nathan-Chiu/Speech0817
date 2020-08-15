@@ -18,9 +18,21 @@ class MyItemRecyclerViewAdapter(
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_item, parent, false)
+        val view = when(viewType){
+            0 -> LayoutInflater.from(parent.context)
+                .inflate(R.layout.fragment_item, parent, false)
+            else -> LayoutInflater.from(parent.context)
+                .inflate(R.layout.fragment_item_2, parent, false)
+        }
         return ViewHolder(view)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return if( position < 5){
+            0
+        } else {
+            1
+        }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
